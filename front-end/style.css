@@ -1,0 +1,302 @@
+:root{
+    --verde-escuro: #004236;
+    --verde-claro: #d5e9d5;
+    --verde-claro1: #026f47;
+    --verde-span: #a9d076;
+    --branco: #f2f5f7;
+    --borda: #b4b8b8;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header{
+    position: relative;
+    width: 100%;
+    min-height: 9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, var(--verde-claro1), var(--verde-escuro));
+    z-index: -2;
+}
+
+.titulo{
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-left: 3rem;
+    z-index: 2;
+}
+
+.titulo img {
+    height: 10vw;
+    max-height: 4rem;
+}
+
+.titulo div{
+    padding-left: 2.5rem;
+    border-left: 2px solid var(--branco);
+    line-height: 2.1rem;
+}
+
+.titulo div h1{
+    color: var(--branco);
+    font-weight: 800;
+}
+
+.titulo div h1 span{
+    color: var(--verde-span);
+}
+
+.titulo div p{
+    color: var(--branco);
+}
+
+#image-background{
+    width: 18vw;   
+    filter: brightness(0) saturate(100%) invert(27%) sepia(13%) saturate(4311%) hue-rotate(122deg) brightness(95%) contrast(102%); 
+    position: absolute;
+    z-index: -1;
+    right: -4em;
+    top: 50%;
+    transform: translateY(-52%);
+    height: 130%;
+    width: auto;
+}
+
+main{
+    background-color: var(--branco);
+    flex: 1;
+    padding-bottom: 3rem;
+}
+
+.mensagem-erro{ /*Inserido via JS, caso aconteça erro de conexão*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.mensagem-erro img{ /*Inserido via JS, caso aconteça erro de conexão*/
+    width: 40vw;
+    border-radius: 0.8rem;
+    box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.3);
+}
+
+#busca-ramal-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 6vw;
+    padding: 1.5rem 0;
+}
+
+.icon{
+    width: 1rem;
+    margin-right: 0.5rem;
+}
+
+.busca-ramal{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--borda);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.busca-ramal:focus-within {
+    box-shadow: 0 0 2px 1px var(--verde-claro1); /* Cria um brilho suave em volta */
+}
+
+.busca-input{
+    border: none;
+    outline: none;
+    width: 100%;
+    background-color: var(--branco);
+}  
+
+.aviso{
+    width: 40%;
+    min-width: 17rem;
+    font-size: 0.8rem;
+    color: rgb(3, 41, 3);
+    background-color: var(--verde-claro);
+    border: none;
+}
+
+.aviso img{
+    width: 2rem;
+    background-color: #b4d48a;
+    border-radius: 5rem;
+    padding: 0.10rem;
+}
+
+.tabela-ramais{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    margin: 0 6vw;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    box-shadow: 0 0 8px 1px var(--borda);
+}
+
+.tabela-ramais table{
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.th-content{
+    background-color: var(--verde-escuro);
+    color: var(--branco);
+    padding: 1.2rem 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.th-content img {
+    width: 1.2rem;
+    height: auto;
+}
+
+/*Início dos estilos para campos adicionados via JS*/
+.row-user{
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.user{
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-left: 32%;
+    padding: 0.8rem 0;
+    font-weight: 400;
+}
+
+.user img{
+    width: 2.2rem;
+    display: inline-block;
+    background-color: var(--verde-claro);
+    border-radius: 5rem;
+    padding: 5px ;
+}
+
+.setor{
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: 500;
+    text-align: center;
+}
+
+.ramal{
+    color: var(--verde-escuro);
+    font-weight: 700;
+    text-align: center;
+}
+
+/*Fim dos estilos para campos adicionados via JS*/
+
+footer{
+    background-color: var(--verde-claro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 0;
+    color: var(--verde-escuro);
+    font-weight: 500;
+}
+
+footer img{
+    width: 3rem;
+}
+
+@media (max-width: 1024px){
+    .titulo{
+        flex-direction: column;
+    }
+
+    .titulo img{
+        width: 9rem;
+        height: 3.2rem;
+        margin-top: 1.5rem;
+    }
+
+    .titulo div{
+        padding-left: 0;
+        border-left: none;
+        margin: -2rem 0 1rem;
+    }
+
+    #busca-ramal-box{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 767px) {
+    thead{
+        display: none;
+    }
+
+    .user{
+        display: none;
+    }
+
+    #mobile{
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin-left: 15%;
+        padding: 0.8rem 0;
+        font-weight: 400;
+    }
+
+    #mobile img{
+        width: 2.3rem;
+        display: inline-block;
+        background-color: var(--verde-claro);
+        border-radius: 5rem;
+        padding: 7px ;
+    }
+
+    .nome-mobile{
+        font-weight: 600;
+    }
+
+    .setor-mobile{
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.7);
+    }
+
+    td:has(.setor){
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    #mobile{
+        display: none;
+    }
+}

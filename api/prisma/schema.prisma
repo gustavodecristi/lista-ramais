@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model devices {
+  id            String  @id @default(dbgenerated("()")) @db.VarChar(20)
+  tech          String  @default(dbgenerated("()")) @db.VarChar(10)
+  dial          String  @default(dbgenerated("()")) @db.VarChar(255)
+  devicetype    String  @default(dbgenerated("()")) @db.VarChar(5)
+  user          String? @db.VarChar(50)
+  description   String? @db.VarChar(50)
+  emergency_cid String? @db.VarChar(100)
+  hint_override String? @db.VarChar(100)
+
+  @@index([id], map: "id")
+  @@index([tech], map: "tech")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model users {
+  extension        String  @default(dbgenerated("()")) @db.VarChar(20)
+  password         String? @db.VarChar(20)
+  name             String? @db.VarChar(50)
+  voicemail        String? @db.VarChar(50)
+  ringtimer        Int?
+  noanswer         String? @db.VarChar(100)
+  recording        String? @db.VarChar(50)
+  outboundcid      String? @db.VarChar(50)
+  sipname          String? @db.VarChar(50)
+  noanswer_cid     String  @default(dbgenerated("()")) @db.VarChar(20)
+  busy_cid         String  @default(dbgenerated("()")) @db.VarChar(20)
+  chanunavail_cid  String  @default(dbgenerated("()")) @db.VarChar(20)
+  noanswer_dest    String  @default(dbgenerated("()")) @db.VarChar(255)
+  busy_dest        String  @default(dbgenerated("()")) @db.VarChar(255)
+  chanunavail_dest String  @default(dbgenerated("()")) @db.VarChar(255)
+  mohclass         String? @default(dbgenerated("(default)")) @db.VarChar(80)
+
+  @@index([extension], map: "extension")
+  @@ignore
+}

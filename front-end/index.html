@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramais Unimed</title>
+    <link rel="shortcut icon" href="https://www.unimed.coop.br/site/o/sites-theme/images/favicon/favicon-96x96.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap" rel="stylesheet">
+    <script src="carregaElementos.js" defer></script>
+    <script src="buscaRamais.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="titulo">
+            <img src="./imagens/logo_unimed.png" alt="Logo Unimed">
+            <div>
+                <h1>Consulta de <span>Ramais</span></h1>
+                <p>Encontre o ramal desejado por nome ou setor.</p>
+            </div>
+        </div>
+        <div>
+            <img src="./imagens/logo_background.png" alt="Imagem de Fundo" id="image-background">
+        </div>
+    </header>
+    <main>
+        <div id="busca-ramal-box">
+            <div class="busca-ramal">
+                <img src="./imagens/lupa.svg" alt="Lupa Icone" class="icon">
+                <input type="text" name="busca-nome" id="input-texto" class="busca-input" placeholder="Busque por nome ou ramal...">
+            </div>
+            <div class="busca-ramal">
+                <img src="./imagens/setores.svg" alt="Setores Icone" class="icon">
+                <select name="busca-setor" id="input-select" class="busca-input">
+                    <option value="todos" selected>Todos os setores</option>
+                </select>
+            </div>
+            <div class="busca-ramal aviso">
+                <img src="./imagens/suporte.svg" alt="Lupa" class="icon">
+                <p>Em caso de dúvidas,<br>entre em contato com o suporte.</p>
+            </div>
+        </div>
+
+        <div class="tabela-ramais">
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="th-content">
+                                <img src="./imagens/usuarios.svg" alt="">NOME
+                            </div>
+                        </th>
+                        <th>
+                            <div class="th-content">
+                                <img src="./imagens/maleta.svg" alt="">SETOR
+                            </div>
+                        </th>
+                        <th>
+                            <div class="th-content">
+                                <img src="./imagens/telefone.svg" alt="">RAMAL
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="corpo-tabela-ramais">
+
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <img src="./imagens/coracao.svg" alt="">
+        <p>CUIDAR DE VOCÊ. ESSE É O PLANO.</p>
+    </footer>
+</body>
+</html>
