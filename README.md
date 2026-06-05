@@ -103,7 +103,7 @@ cd lista-ramais/api
 ### Instalar dependências
 
 ```bash
-npm install
+npm install express prisma@6 @prisma/client@6 dotenv cors
 ```
 
 ### Configurar variáveis de ambiente
