@@ -2,14 +2,22 @@ import express from 'express';
 import cors from 'cors';
 import { PrismaClient } from '@prisma/client';
 import 'dotenv/config';
+import https from 'https';
+import fs from 'fs';
 
 const app = express();
 const prisma = new PrismaClient();
 
+// Carregar os certificados SSL
+const options = {
+  key: fs.readFileSync('certificado/sa.key'),
+  cert: fs.readFileSync('certificado/sa.crt'),
+};
+
 app.use(cors());
 app.use(express.json());
 
-app.get('/dados', async (req, res) => {
+app.get('/Ramais', async (req, res) => {
     try {
         const dados = await prisma.devices.findMany({
             select: {
@@ -27,6 +35,6 @@ app.get('/dados', async (req, res) => {
     }
 });
 
-app.listen(3000, () => {
-    console.log('API rodando na porta 3000');
+https.createServer(options, app).listen(3050, () => {
+  console.log('API segura (HTTPS) rodando na porta 3050');
 });

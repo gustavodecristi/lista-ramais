@@ -1,4 +1,4 @@
-const API_URL = 'http://192.168.26.41:3050/Ramais'
+const API_URL = 'https://api.unimedmarilia.com.br:3050/Ramais'
 
 async function buscarRamais() {
     try {
